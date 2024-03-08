@@ -1,0 +1,24 @@
+// Find duplicates char in a string
+#include <iostream>
+using namespace std;
+int main() {
+ string s="malayalam";
+ int m=s.size();
+ int count[256]={0};
+
+
+ for(int i=0;i<m;i++)
+ {
+    count[s[i]]++;
+ }   
+     
+for (int i = 0; i < m; i++) 
+{
+    if (count[s[i]] > 1) 
+    {
+       cout << s[i] << "=" << count[s[i]] << "\n";
+        count[s[i]] = 0; 
+     }
+}
+    return 0;
+}
