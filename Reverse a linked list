@@ -1,0 +1,96 @@
+//Reverse a linked list
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+
+typedef struct node{
+    int data;
+    struct node* link;
+}NODE;
+
+NODE* getnode()
+{
+    NODE* x;
+    x = (NODE*)malloc(sizeof(NODE));
+    cout<<"Enter the elements: ";
+    cin>>x->data;
+    x->link = NULL;
+    return x;
+}
+
+NODE* insertFront(NODE* first)
+{
+    NODE* temp;
+    temp = getnode();
+    if(first==NULL){
+        first = temp;
+    }
+    else{
+       temp->link = first;
+        first = temp;
+    }
+    return first;
+}
+
+NODE* reverse(NODE* first)
+{
+    NODE* prev = NULL;
+    NODE* next = NULL;
+    NODE* curr = first;
+    
+    while(curr!=NULL)
+    {
+        next = curr->link;
+        curr->link = prev;
+        prev = curr;
+        curr = next;
+    }
+    first = prev;
+    return first;
+}
+
+NODE* display(NODE* first)
+{
+    NODE* curr;
+    if(first==NULL)
+    {
+        cout<<"List empty.";
+    }
+    else{
+        curr = first;
+        while(curr!=NULL)
+        {
+            cout<<curr->data;
+            if(curr->link != NULL)
+            {
+                cout<< "->";
+            }
+            curr = curr->link;
+         
+        }
+    }
+    return first;
+}
+
+int main() {
+  NODE* root = NULL;
+  int choice;
+  while(choice!=4)
+  {
+      cout<<"\n1.InsertFront 2.Display 3.Reverse\n";
+      cout<<"Enter your choice: ";
+      cin>>choice;
+      switch(choice)
+      {
+          case 1:root = insertFront(root);
+                 break;
+          case 2:root = display(root);
+                 break;
+          case 3:root = reverse(root);
+                 break;
+          default:cout<<"Invalid choice.";
+                  break;
+                 
+      }
+  }
+}
