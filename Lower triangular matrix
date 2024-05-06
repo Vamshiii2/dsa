@@ -1,0 +1,36 @@
+// Convert matrix into lower triangular matrix
+#include <iostream>
+using namespace std;
+int main() {
+    int m,n;
+    cout<<"Enter number of rows:";
+    cin>>m;
+    cout<<"Enter number of columns:";
+    cin>>n;
+    int mat[m][n];
+    cout<<"Enter matrix elements:";
+    for(int i=0;i<m;i++)
+    {
+        for(int j=0;j<n;j++)
+        {
+            cin>>mat[i][j];
+        }
+    }
+    cout<<"Lower triangular matrix is given by:\n";
+    for(int i=0;i<m;i++)
+    {
+        for(int j=0;j<n;j++)
+        {
+            if(j>i)
+            {
+                cout<<0<<" ";
+            }
+            else{
+                cout<<mat[i][j]<<" ";
+            }
+        }
+        cout<<"\n";
+    }
+     
+    
+}
