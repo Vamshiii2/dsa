@@ -1,0 +1,28 @@
+// Reversal of a number
+#include <iostream>
+using namespace std;
+
+
+int main() {
+    int num=-1002,sum=0;
+    bool isnegative=num<0;
+    if(isnegative)
+    {
+        num=-num;
+    }
+    while(num!=0)
+    {
+        
+        int r=num%10;
+        sum=sum*10 + r;
+        num=num/10;
+        
+    }
+    if(isnegative)
+    {
+        sum=-sum;
+    }
+    
+    cout<<sum;
+    
+}
